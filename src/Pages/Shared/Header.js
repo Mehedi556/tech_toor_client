@@ -28,7 +28,22 @@ const Header = () => {
         <li><Link to="/blog">BLOG</Link></li>
     </ul>
   </div>
-  
+  <div className="navbar-end">
+    <div>
+         <div className="form-control">
+  <label className="label cursor-pointer">
+    <span className="label-text font-bold pr-2">Dark/Light</span> 
+    <input type="checkbox" className="toggle" />
+  </label>
+</div>
+    </div>
+    <div className='flex pl-2'>
+        <span><FaUserAlt className='inline'></FaUserAlt></span>
+        <h1 className='ml-1'>Profile</h1>
+
+    </div>
+ 
+  </div>
 </div>
     );
 };
