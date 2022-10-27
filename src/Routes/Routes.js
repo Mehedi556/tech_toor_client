@@ -6,6 +6,7 @@ import Error from "../Pages/Error/Error";
 import Faq from "../Pages/Faq/Faq";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import Premium from "../Pages/Premium/Premium";
 import Register from "../Pages/Register/Register";
 
 export const routes = createBrowserRouter([
@@ -34,6 +35,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/faq',
                 element: <Faq></Faq>
+            },
+            
+            {
+                path: '/premium',
+                element: <Premium></Premium>
             },
             {
                 path: '/category/:id',

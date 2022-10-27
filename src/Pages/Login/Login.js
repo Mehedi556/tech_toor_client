@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
@@ -8,6 +9,8 @@ const Login = () => {
   const {signInUser} = useContext(AuthContext)
 
   const navigate = useNavigate();
+
+  const [error , setError] = useState('');
 
   const handleSubmit =(event) => {
     event.preventDefault();
@@ -19,8 +22,12 @@ const Login = () => {
     const user = result.user;
     console.log(user);
     form.reset();
-    navigate('/')
-}).catch(error => console.error(error))
+    navigate('/');
+    setError('');
+}).catch(error => {
+  console.error(error)
+  setError(error.message);
+})
   }
 
     return (
@@ -47,7 +54,10 @@ const Login = () => {
           </label>
           <input type="text" name="password" placeholder="password" className="input input-bordered" required/>
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            <Link to="/register"><a style={{color:"blue"}} href="#" className="label-text-alt link link-hover">Want to Sign in?</a></Link>
+          </label>
+          <label className="label">
+            <a style={{color:"red"}} href="#" className="label-text-alt link link-hover">{error}</a>
           </label>
         </div>
         <div className="form-control mt-6">

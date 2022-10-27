@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Category = () => {
   const detail = useLoaderData();
@@ -14,7 +14,7 @@ const Category = () => {
           <h2 className="card-title">{detail.name}</h2>
           <p>{detail.details}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Learn now!</button>
+            <Link to="/premium"><button className="btn btn-primary">Get premium access!</button></Link>
           </div>
         </div>
       </div>

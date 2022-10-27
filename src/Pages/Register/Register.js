@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Register = () => {
@@ -7,6 +7,8 @@ const Register = () => {
   const {makingUser} = useContext(AuthContext)
 
   const navigate = useNavigate();
+
+  const [error , setError] = useState('');
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -23,7 +25,11 @@ const handleSubmit = (event) => {
     console.log(user);
     form.reset();
     navigate('/')
-}).catch(error => console.error(error))
+    setError('');
+}).catch(error => {
+  console.error(error)
+  setError(error.message)
+})
 }
 
 
@@ -73,7 +79,10 @@ const handleSubmit = (event) => {
       </label>
       <input type="password" name="password" placeholder="password" className="input input-bordered" required/>
       <label className="label">
-        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+        <Link to="/login"><a style={{color:"blue"}} href="#" className="label-text-alt link link-hover">have an Account?</a></Link>
+      </label>
+      <label className="label">
+        <a href="#" className="label-text-alt link link-hover">{error}</a>
       </label>
     </div>
 
