@@ -2,9 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import part from '../../Assets/part.jpg';
 import { FaBeer , FaUserAlt } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 
 const Header = () => {
+
+  const {user} = useContext(AuthContext);
     return (
         <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -37,9 +41,22 @@ const Header = () => {
   </label>
 </div>
     </div>
-    <div className='flex pl-2'>
-        <span><FaUserAlt className='inline'></FaUserAlt></span>
-        <h1 className='ml-1'>Profile</h1>
+    <div className='flex pl-5'>
+      
+        
+         <span>
+          {user?.photoURL ? 
+          <img style={{height:'25px'}} roundedCircle src={user.photoURL}/>
+        :
+        <FaUserAlt className='inline'></FaUserAlt>
+        }
+          </span>
+      
+      
+        
+
+        
+        
 
     </div>
  

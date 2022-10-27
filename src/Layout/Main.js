@@ -9,9 +9,9 @@ const Main = () => {
         <div className='w-10/12 mx-auto'>
             <Header></Header>
 
-            <div className='grid grid-cols-3'>
-                <Sidebar className="col-span-1"></Sidebar>
-                <Outlet className="col-span-2"></Outlet>
+            <div className='block md:flex'>
+                <Sidebar className="w-4/4 md:w-2/4 lg:w-1/4"></Sidebar>
+                <Outlet className="w-4/4 md:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></Outlet>
             </div>
             <Footer></Footer>
 
