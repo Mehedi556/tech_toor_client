@@ -11,6 +11,10 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user , setUser] = useState(null);
 
+    const githubLogin = (provider) => {
+        return signInWithPopup(auth, provider)
+    }
+
     const googleLogin = (provider) => {
         return signInWithPopup(auth , provider);
     }
@@ -23,7 +27,7 @@ useEffect(() => {
     }
 } , [])
 
-    const authInfo = {user , googleLogin};
+    const authInfo = {user , googleLogin , githubLogin};
 
     return (
         <AuthContext.Provider value={authInfo}>

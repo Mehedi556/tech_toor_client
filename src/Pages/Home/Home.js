@@ -16,11 +16,23 @@ const Home = () => {
                 <img src={data.picture} alt="car!" />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{data.name}</h2>
-                <p>How to park your car at your garage?</p>
+                <h2 className="card-title font-bold">Language: {data.name}</h2>
+                
                 <div className="card-actions justify-end">
-                  <Link to=''><button className="btn btn-primary">Learn now!</button></Link>
+
+
+                {
+                
+                    <Link to={`/category/${data.id}`}><button  key={data.id} className="btn btn-outline btn-sm  my-2">Details</button></Link>
+
+                    
+                
+            }
+                  
+
+
                 </div>
+
               </div>
             </div>
           </div>

@@ -20,6 +20,8 @@ const Header = () => {
         <li><Link to="/">COURSES</Link></li>
         <li><Link to="/faq">FAQ</Link></li>
         <li><Link to="/blog">BLOG</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/register">Register</Link></li>
       </ul>
     </div>
     <img style={{width: '40px'}} src={part} alt="" />
@@ -30,6 +32,8 @@ const Header = () => {
         <li><Link to="/">COURSES</Link></li>
         <li><Link to="/faq">FAQ</Link></li>
         <li><Link to="/blog">BLOG</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/register">Register</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
