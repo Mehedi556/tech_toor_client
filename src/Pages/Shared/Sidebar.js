@@ -8,7 +8,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Sidebar = () => {
 
-    const {googleLogin , githubLogin} = useContext(AuthContext);
+    const {googleLogin , githubLogin , setUser} = useContext(AuthContext);
     const [options , setOptions] = useState([]);
 
     useEffect(() => {
@@ -24,6 +24,7 @@ const Sidebar = () => {
         googleLogin(googleProvider)
         .then(result => {
             const user = result.user;
+            setUser(user);
             console.log(user);
         }).catch(error => console.error(error))
     }
@@ -32,6 +33,7 @@ const Sidebar = () => {
         githubLogin(githubProvider)
         .then(result => {
             const user = result.user;
+            setUser(user);
             console.log(user);
         }).catch(error => console.error(error))
     }

@@ -4,11 +4,21 @@ import part from '../../Assets/part.jpg';
 import { FaBeer , FaUserAlt } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import { signOut } from 'firebase/auth';
 
 
 const Header = () => {
 
-  const {user} = useContext(AuthContext);
+  const {user , logOut} = useContext(AuthContext);
+
+const handleLogOut = () => {
+  logOut()
+  .then(() => {})
+  .catch(error => console.error(error))
+}
+
+
+
     return (
         <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -32,8 +42,8 @@ const Header = () => {
         <li><Link to="/">COURSES</Link></li>
         <li><Link to="/faq">FAQ</Link></li>
         <li><Link to="/blog">BLOG</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/register">Register</Link></li>
+        {/* <li><Link to="/login">Login</Link></li>
+        <li><Link to="/register">Register</Link></li> */}
     </ul>
   </div>
   <div className="navbar-end">
@@ -48,15 +58,27 @@ const Header = () => {
     <div className='flex pl-5'>
       
         
-         <span>
+         
           {user?.photoURL ? 
           <img className='rounded-xl' style={{height:'25px'}} src={user.photoURL}/>
         :
         <FaUserAlt className='inline'></FaUserAlt>
         }
-          </span>
-      
-      
+          
+          {
+            user?.uid ?
+            <button className='ml-2 btn btn-xs btn-outline' onClick={handleLogOut}>Sign Out</button>
+            :
+
+             <div className='hidden lg:block ml-2'>
+            <Link to="/login"><button className='btn btn-xs btn-outline'>Login</button></Link>
+        <Link to="/register"><button className='btn btn-xs btn-outline'>Register</button></Link>
+          </div>
+          }
+          
+          
+         
+          
         
 
         
