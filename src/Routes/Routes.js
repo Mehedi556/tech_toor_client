@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Category from "../Pages/Category/Category";
+import Details from "../Pages/Details/Details";
 import Error from "../Pages/Error/Error";
 import Faq from "../Pages/Faq/Faq";
 import Home from "../Pages/Home/Home";
@@ -15,7 +16,9 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/details'),
+                // loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
             },
             {
                 path: '/login',
@@ -39,9 +42,19 @@ export const routes = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
             },
             {
+                path: '/details/:id',
+                element: <Details></Details>,
+                loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+            },
+            {
                 path: '*',
                 element: <Error></Error>
             }
+            
         ]
+    },
+    {
+        path: '*',
+        element: <Error></Error>
     }
 ])

@@ -46,7 +46,7 @@ const Header = () => {
         
          <span>
           {user?.photoURL ? 
-          <img style={{height:'25px'}} roundedCircle src={user.photoURL}/>
+          <img className='rounded-xl' style={{height:'25px'}} src={user.photoURL}/>
         :
         <FaUserAlt className='inline'></FaUserAlt>
         }
