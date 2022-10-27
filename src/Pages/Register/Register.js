@@ -4,7 +4,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Register = () => {
 
-  const {makingUser} = useContext(AuthContext)
+  const {makingUser , updateUser} = useContext(AuthContext)
 
   const navigate = useNavigate();
 
@@ -24,6 +24,7 @@ const handleSubmit = (event) => {
     const user = result.user;
     console.log(user);
     form.reset();
+    handleUpdateUser(name , photoURL);
     navigate('/')
     setError('');
 }).catch(error => {
@@ -32,6 +33,15 @@ const handleSubmit = (event) => {
 })
 }
 
+const handleUpdateUser = (name , photoURL) => {
+  const profile = {
+    displayName: name,
+    photoURL: photoURL
+  }
+  updateUser(profile)
+  .then(() => { })
+  .catch(error => console.error(error));
+}
 
 
     return (
