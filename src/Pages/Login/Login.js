@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
 
 
-  
+  const {signInUser} = useContext(AuthContext)
+
+  const navigate = useNavigate();
+
+  const handleSubmit =(event) => {
+    event.preventDefault();
+  const form = event.target;
+  const email  = form.email.value;
+  const password  = form.password.value;
+  signInUser(email , password)
+  .then(result => {
+    const user = result.user;
+    console.log(user);
+    form.reset();
+    navigate('/')
+}).catch(error => console.error(error))
+  }
 
     return (
-        <form className='mx-auto'>
+        <form onSubmit={handleSubmit} className='mx-auto'>
             <div className="hero mt-24 p-5 rounded-xl w-full bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
