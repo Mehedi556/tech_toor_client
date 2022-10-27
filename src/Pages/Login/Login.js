@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
@@ -9,6 +9,10 @@ const Login = () => {
   const {signInUser} = useContext(AuthContext)
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const [error , setError] = useState('');
 
@@ -22,8 +26,8 @@ const Login = () => {
     const user = result.user;
     console.log(user);
     form.reset();
-    navigate('/');
     setError('');
+    navigate(from, {replace: true});
 }).catch(error => {
   console.error(error)
   setError(error.message);

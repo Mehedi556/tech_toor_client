@@ -8,6 +8,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Premium from "../Pages/Premium/Premium";
 import Register from "../Pages/Register/Register";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -39,7 +40,7 @@ export const routes = createBrowserRouter([
             
             {
                 path: '/premium',
-                element: <Premium></Premium>
+                element: <PrivetRoute><Premium></Premium></PrivetRoute>
             },
             {
                 path: '/category/:id',
