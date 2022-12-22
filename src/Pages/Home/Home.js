@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
   const dataDetails = useLoaderData();
@@ -7,6 +8,10 @@ const Home = () => {
   // console.log(dataDetails);
   return (
     <div className='mb-32'>
+      <div className='hidden md:block'>
+        <Banner></Banner>
+      </div>
+      
       
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  mx-auto mt-14'>
         {dataDetails.map(data => (
@@ -16,7 +21,7 @@ const Home = () => {
                 <img className='h-[240px] w-full rounded-xl border' src={data.picture} alt="car!" />
               </figure>
               <div className="card-body">
-                <h2 className="card-title font-bold">Language: {data.name}</h2>
+                <h2 className="card-title font-bold">{data.name}</h2>
                 
                 <div className="card-actions justify-end">
                 {

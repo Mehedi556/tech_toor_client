@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import Banner from '../Banner/Banner';
 
 const Sidebar = () => {
   const { googleLogin, githubLogin, setUser } = useContext(AuthContext);
@@ -41,6 +42,10 @@ const Sidebar = () => {
 
   return (
     <div className="">
+      <div className='block md:hidden'>
+         <Banner></Banner>
+      </div>
+     
       <h2 className="text-center font-bold text-2xl mt-9">All Courses</h2>
       {options.map(option => (
         <div className=" text-center">

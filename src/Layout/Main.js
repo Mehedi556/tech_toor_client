@@ -8,7 +8,6 @@ const Main = () => {
     return (
         <div className='w-11/12 mx-auto'>
             <Header></Header>
-
             <div className='block md:flex'>
                 <Sidebar className="w-4/4 md:w-2/4 lg:w-1/4"></Sidebar>
                 <div className="bg-slate-100 divider sm:divider-horizontal"></div>
