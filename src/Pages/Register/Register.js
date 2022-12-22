@@ -19,6 +19,7 @@ const handleSubmit = (event) => {
   const password  = form.password.value;
   console.log(name , photoURL , email , password);
 
+
   makingUser(email , password)
   .then(result => {
     const user = result.user;
@@ -45,8 +46,9 @@ const handleUpdateUser = (name , photoURL) => {
 
 
     return (
-        <form onSubmit={handleSubmit} className='mx-auto'>
-        <div className="hero mt-24 p-5 rounded-xl w-full bg-base-200">
+      <div className='mx-auto mb-32'>
+        <form onSubmit={handleSubmit} className='mx-auto '>
+        <div className=" mt-24 p-5 rounded-xl w-full bg-base-200">
 <div className="hero-content flex-col lg:flex-row-reverse">
 <div className="text-center lg:text-left">
   <h1 className="text-5xl font-bold">Register Now!</h1>
@@ -98,14 +100,17 @@ const handleUpdateUser = (name , photoURL) => {
 
 
 
+
     <div className="form-control mt-6">
-      <button className="btn btn-primary">Login</button>
+      <button className="btn btn-primary">Register</button>
     </div>
   </div>
 </div>
 </div>
 </div>
     </form>
+      </div>
+        
     );
 };
 

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 export const AuthContext = createContext();
-
+ 
 const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {

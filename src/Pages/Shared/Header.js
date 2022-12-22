@@ -42,13 +42,11 @@ const handleLogOut = () => {
         <li><Link to="/">COURSES</Link></li>
         <li><Link to="/faq">FAQ</Link></li>
         <li><Link to="/blog">BLOG</Link></li>
-        {/* <li><Link to="/login">Login</Link></li>
-        <li><Link to="/register">Register</Link></li> */}
     </ul>
   </div>
   <div className="navbar-end">
     <div>
-         <div className="form-control">
+         <div className="form-control hidden md:block">
   <label className="label cursor-pointer">
     <span className="label-text font-bold pr-2">Dark/Light</span> 
     <input type="checkbox" className="toggle" />
@@ -56,34 +54,19 @@ const handleLogOut = () => {
 </div>
     </div>
     <div className='flex pl-5'>
-      
-        
-         
           {user?.photoURL ? 
           <img className='rounded-xl' style={{height:'25px'}} src={user.photoURL}/>
         :
-        <FaUserAlt className='inline'></FaUserAlt>
+        <FaUserAlt className='mt-1.5'></FaUserAlt>
         }
-          
           {
             user?.uid ?
             <button className='ml-2 btn btn-xs btn-outline' onClick={handleLogOut}>Sign Out</button>
             :
-
              <div className='hidden lg:block ml-2'>
             <Link to="/login"><button className='btn btn-xs btn-outline'>Login</button></Link>
-        <Link to="/register"><button className='btn btn-xs btn-outline'>Register</button></Link>
           </div>
           }
-          
-          
-         
-          
-        
-
-        
-        
-
     </div>
  
   </div>

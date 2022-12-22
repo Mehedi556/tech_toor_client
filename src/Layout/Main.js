@@ -6,7 +6,7 @@ import Sidebar from '../Pages/Shared/Sidebar';
 
 const Main = () => {
     return (
-        <div className='w-10/12 mx-auto'>
+        <div className='w-11/12 mx-auto'>
             <Header></Header>
 
             <div className='block md:flex'>
